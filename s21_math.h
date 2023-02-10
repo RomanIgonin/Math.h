@@ -2,9 +2,9 @@
 #define _S_21_MATH_H_
 
 #include <stdio.h>
-#include <math.h>                                       // delete
+#include <math.h> // delete
 #include <stdlib.h>
-#include <float.h>      // для DBL_MAX
+#include <float.h> // для DBL_MAX
 
 #define s21_NAN 0.0 / 0.0
 #define s21_MAX_INF 1.0 / 0.0
@@ -14,7 +14,6 @@
 #define S21_EPS 1e-7                                    // del
 #define S21_INF 1.0 / 0.0                               // del
 #define S21_NAN 0.0 / 0.0                               // del
-// #define s21_EXP 
 
 long double s21_sin(double x);
 long double s21_cos(double x);
@@ -24,7 +23,7 @@ long double s21_asin(double x);
 long double s21_acos(double x);
 long double s21_atan(double x);
 
-long double s21_fmod(double x, double y);      // остаток от деления числел с плавающей точкой
+long double s21_fmod(double x, double y);      // остаток от деления чисел с плавающей точкой
 long double s21_log(double x);                 // вычисляет степень в которую нужно возвести exp
 long double s21_pow(double base, double exp);  // возводит число в заданную степень
 long double s21_sqrt(double x);                // квадратный корень числа
@@ -37,7 +36,6 @@ long double s21_fabs(double x);                // возвращает числ�
 int s21_abs(int x);
 
 // дополнительные для вычисления 15 основных из задания
-// long int s21_factorial(long int n);
 long double check(long double x, long double res); // Проверка на inf, -inf и nan
 long double check_2(long double x);
 

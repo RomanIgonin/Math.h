@@ -1,25 +1,10 @@
 #include "s21_math.h"
 
-// int main(void) {
-//     long double base = s21_MIN_INF;
-//     printf("  s21_ : %.15Lf\n", s21_fabs(base));
-//     printf("       : %.15Lf\n\n", fabsl(base));
-// }
-
 long double s21_sin(double x) {
     long double buff = 0;
     long double res = 0;
     if (x == s21_MAX_INF) res = s21_NAN;
     if (x < (-2 * s21_PI) || x > (2 * s21_PI)) x = s21_fmod(x, 2 * s21_PI);
-
-    // for (; x < (-2 * s21_PI) || x > (2 * s21_PI); ) {
-    //     if (x < (-2 * s21_PI)) {
-    //         x += 2 * s21_PI;
-    //     }
-    //     else {
-    //         x -= 2 * s21_PI;
-    //     }
-    // }
 
     buff = x;         // один кусок ряда
     res = buff;       // cумма кусков ряда
@@ -103,23 +88,6 @@ long double s21_log(double x) {     // Готов
         res += i;
     }
     return res;
-        // long double y = (x - 1) / (x + 1);
-        // long double res = 1;
-        // if (x < 0) res = s21_NAN;
-        // else if (x == 0) res = s21_MIN_INF;
-        // else if (x == s21_MAX_INF) res = s21_MAX_INF;
-        // else {
-        //     for (int i = 50000001; i > 0; i -= 2) {
-        //         res *= pow(y, 2);                      // s21_pow
-        //         res += 1.0 / i;
-        //     }
-        //     res *= 2 * y;
-        //     if (x <= 0) {
-        //         x = s21_NAN;
-        //         res = x;
-        //     }
-        // }
-        // return res;
 }
 
 long double s21_pow(double base, double exp) {  // на числах 666666 точность уезжает из за exp
@@ -172,12 +140,10 @@ long double s21_pow(double base, double exp) {  // на числах 666666 то
             if (s21_fmod(exp, 2) != 0) res = -res;
         }
     }
-
-    
-    return res;                                // 2 в 50 степени после запятой не сходится
+    return res; // 2 в 50 степени после запятой не сходится
 }
 
-long double s21_exp(double x) {     // exp теряет точность на 25 и больше, что влияет на pow
+long double s21_exp(double x) { // exp теряет точность на 25 и больше, что влияет на pow
     long double buff = 1;
     long double res = 1;
     int num = 0;
@@ -209,19 +175,6 @@ long double s21_sqrt(double x) {
         res = s21_pow(x, 0.5);
     }
     return res;
-
-    // long double res = 0;
-    // long double buff = x;
-    // if (x == 0) res = 0;
-    // else if (x == s21_MAX_INF) res = s21_MAX_INF;
-    // else if (x == s21_MIN_INF || x == s21_NAN || x < 0) res = s21_NAN;
-    // else {
-    //     do {
-    //         res = 0.5 * (buff + x / buff);
-    //         buff = res;
-    //     } while (res * res - x > 1e-18);
-    // }
-    // return res;
 }
 
 long double s21_fabs(double x) {
@@ -250,7 +203,7 @@ int s21_abs(int x) {
     return x;
 }
 
-long double s21_ceil(double x) {                        // Готов
+long double s21_ceil(double x) {
     long double res = (long long int)x;
     long double buff = x;
     if (x > 0 && (buff - res) != 0) res += 1;
@@ -258,23 +211,13 @@ long double s21_ceil(double x) {                        // Готов
     return res;
 }
 
-long double s21_floor(double x) {                       // Готов
+long double s21_floor(double x) {
     long double res = (long long int)x;
     long double buff = x;
     if (x < 0 && (buff - res) != 0) res -= 1;
     res = check(x, res);
     return res;
 }
-
-
-
-
-// long int s21_factorial(long int n) {     // мы его нигде теперь не используем
-//     long int num = 0;
-//     if (n == 0 || n == 1) num = 1;
-//     else num = n * s21_factorial(n - 1);
-//     return num;
-// }
 
 long double check(long double x, long double res) {
     long double buff = res;

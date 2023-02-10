@@ -1,7 +1,0 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory `/Users/a123/Projects/С4'
-gcc -std=c11 -Wall -Wextra -Werror -c s21_math.c -o s21_math.o
-ar rc s21_math.a s21_math.o
-ranlib s21_math.a
-make: Leaving directory `/Users/a123/Projects/С4'
- 
